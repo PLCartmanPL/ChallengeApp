@@ -1,67 +1,62 @@
-﻿// założenia
-int number = 80222;
-string numberInString = number.ToString();
-char[] data = numberInString.ToArray();
-var i = 0;
-//tablica wartości
-List<int> counter = new List<int>();
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-counter.Add(0);
-//działania na counterch
-foreach (char adding in data)
+﻿using ChallengApp;
+
+Employee employee1 = new Employee("Jacek", "naglik", 19);
+Employee employee2 = new Employee("Paweł", "Nowak", 55);
+Employee employee3 = new Employee("Jola", "Krzak", 35);
+
+employee1.AddScore(5);
+employee1.AddScore(7);
+employee1.AddScore(6);
+employee1.AddScore(6);
+employee1.AddScore(8);
+
+employee2.AddScore(5);
+employee2.AddScore(1);
+employee2.AddScore(1);
+employee2.AddScore(9);
+employee2.AddScore(6);
+
+employee3.AddScore(2);
+employee3.AddScore(3);
+employee3.AddScore(5);
+employee3.AddScore(8);
+employee3.AddScore(10);
+
+List<Employee> workers = new List<Employee>()
 {
-    if (adding == '0')
+    employee1, employee2, employee3
+};
+
+int maxResult = -1;
+Employee employeeWithMaxResult = null;
+
+foreach (var employee in workers)
+{
+    if (employee.Result > maxResult)
     {
-        counter[0]++;
-    }
-    else if (adding == '1')
-    {
-        counter[1]++;
-    }
-    else if (adding == '2')
-    {
-        counter[2]++;
-    }
-    else if (adding == '3')
-    {
-        counter[3]++;
-    }
-    else if (adding == '4')
-    {
-        counter[4]++;
-    }
-    else if (adding == '5')
-    {
-        counter[5]++;
-    }
-    else if (adding == '6')
-    {
-        counter[6]++;
-    }
-    else if (adding == '7')
-    {
-        counter[7]++;
-    }
-    else if (adding == '8')
-    {
-        counter[8]++;
-    }
-    else if (adding == '9')
-    {
-        counter[9]++;
+        employeeWithMaxResult = employee;
+        maxResult = employee.Result;
     }
 }
-// Dynamiczne yświetlanie wyniku
-Console.WriteLine("W liczbie " + number);
-foreach (var result in counter)
+
+if (employee1.Result != employee2.Result && employee1.Result != employee3.Result && employee2.Result != employee3.Result)
 {
-    Console.WriteLine("cyfra " + i++ + " występuje " + result + " razy");
+    Console.WriteLine("Pracownik z największym wynikiem to " + employeeWithMaxResult.Name + " uzyskał/a " + employeeWithMaxResult.Result + " punktów!");
+}
+
+if (employeeWithMaxResult.Result == employee1.Result && employeeWithMaxResult.Result == employee2.Result && employeeWithMaxResult.Result == employee3.Result)
+{
+    Console.WriteLine("Pracownicy " + employee1.Name + " " + employee2.Name + " " + employee3.Name + " razem uzykali najlepszy wynik, każdy po " + employeeWithMaxResult.Result + " punktów!");
+}
+else if (employeeWithMaxResult.Result == employee1.Result && employeeWithMaxResult.Result == employee2.Result)
+{
+    Console.WriteLine("Pracownicy " + employee1.Name + " " + employee2.Name + " razem uzykali najlepszy wynik, każdy po " + employeeWithMaxResult.Result + " punktów!");
+}
+else if (employeeWithMaxResult.Result == employee2.Result && employeeWithMaxResult.Result == employee3.Result)
+{
+    Console.WriteLine("Pracownicy " + employee2.Name + " " + employee3.Name + " razem uzykali najlepszy wynik, każdy po " + employeeWithMaxResult.Result + " punktów!");
+}
+else if(employeeWithMaxResult.Result == employee1.Result && employeeWithMaxResult.Result == employee3.Result)
+{
+    Console.WriteLine("Pracownicy " + employee1.Name + " " + employee3.Name + " razem uzykali najlepszy wynik, każdy po " + employeeWithMaxResult.Result + " punktów!");
 }
