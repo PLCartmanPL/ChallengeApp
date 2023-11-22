@@ -2,7 +2,7 @@
 
 namespace ChallengeApp.test
 {
-    public class Tests2
+    public class EmployeeTests
     {
 
         [Test]

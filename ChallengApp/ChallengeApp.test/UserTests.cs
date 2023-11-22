@@ -2,7 +2,7 @@ using ChallengApp;
 
 namespace ChallengeApp.test
 {
-    public class Tests1
+    public class UserTests
     {
 
         [Test]

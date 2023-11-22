@@ -14,7 +14,11 @@
                 return this.score.Sum(); //wewnętrzna logika
             }
         }
-        public User(string login, string password) //Tworzenie nowego obiektu uruchamia ten kod
+        public User(string login) //Tworzenie nowego obiektu uruchamia ten kod
+        {
+            this.Login = login; // konstruktor THIS odwołuje sie do prywanej zmiennej
+        }
+            public User(string login, string password) //Tworzenie nowego obiektu uruchamia ten kod
         {
             this.Login = login; // konstruktor THIS odwołuje sie do prywanej zmiennej
             this.Password = password;
