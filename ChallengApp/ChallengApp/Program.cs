@@ -1,5 +1,9 @@
 ﻿using ChallengApp;
 
+User user1 = new User("Jacek", "naglik");
+User user2 = new User("Paweł", "Nowak");
+User user3 = new User("Jola", "Krzak");
+
 Employee employee1 = new Employee("Jacek", "naglik", 19);
 Employee employee2 = new Employee("Paweł", "Nowak", 55);
 Employee employee3 = new Employee("Jola", "Krzak", 35);
