@@ -30,7 +30,17 @@ namespace ChallengeApp.test
             // assert
             Assert.AreEqual(number1, number2);
         }
-       
+
+        [Test]
+        public void SamefloatAreTheSameObjects()
+        {
+            // arrange
+            float float1 = 2.345f;
+            float float2 = 2.345f;
+
+            // assert
+            Assert.AreEqual(float1, float2);
+        }
     }
 }
 
