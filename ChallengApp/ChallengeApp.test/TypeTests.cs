@@ -6,18 +6,14 @@ namespace ChallengeApp.test
     public class TypeTests
     {
         [Test]
-        public void GetUserShouldReturnDifferentObects()
+        public void GetEmployeeShouldReturnDifferentObects()
         {
             // arrange
-            var user1 = GetUser("Paweł");
-            var user2 = GetUser("Paweł");
+            var employee1 = GetEmployee("Paweł");
+            var employee2 = GetEmployee("Paweł");
 
             // assert
-            Assert.AreNotEqual(user1, user2); 
-        }
-        private User GetUser(string name)
-        {
-            return new User(name);
+            Assert.AreNotEqual(employee1, employee2);
         }
 
         [Test]
@@ -40,6 +36,20 @@ namespace ChallengeApp.test
 
             // assert
             Assert.AreEqual(float1, float2);
+        }
+        [Test]
+        public void SameStringAreTheSameObjects()
+        {
+            // arrange
+            string text1 = "Paweł";
+            string text2 = "Paweł";
+
+            // assert
+            Assert.AreEqual(text1, text2);
+        }
+        private Employee GetEmployee(string name)
+        {
+            return new Employee(name);
         }
     }
 }
