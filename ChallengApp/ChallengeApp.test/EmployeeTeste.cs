@@ -44,16 +44,16 @@ namespace ChallengeApp.test
         {
             // arrange
             var employee1 = new Employee("Paweł", "Naglik");
-            employee1.AddGrade(15);
-            employee1.AddGrade(25);
-            employee1.AddGrade(23);
+            employee1.AddGrade(2);
+            employee1.AddGrade(2);
+            employee1.AddGrade(6);
 
             //act
             var statistics = employee1.GetStatistics();
 
 
             // assert
-            Assert.AreEqual(21, statistics.Average);
+            Assert.AreEqual(Math.Round(3.33, 2), Math.Round(statistics.Average, 2));
         }
     }
 }

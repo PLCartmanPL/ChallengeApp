@@ -1,9 +1,9 @@
 ﻿using ChallengApp;
 
 var employee = new Employee("Adam", "Naglik");
-employee.AddGrade(80);
-employee.AddGrade(16);
-employee.AddGrade(62);
+employee.AddGrade(800);
+employee.AddGrade("adam");
+employee.AddGrade(90);
 
 var statsitic = employee.GetStatistics();
 
