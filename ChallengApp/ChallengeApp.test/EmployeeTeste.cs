@@ -55,6 +55,38 @@ namespace ChallengeApp.test
             // assert
             Assert.AreEqual(Math.Round(3.33, 2), Math.Round(statistics.Average, 2));
         }
+        [Test]
+        public void GradeInLetterReturnsNumber()
+        {
+            // arrange
+            var employee1 = new Employee("Paweł", "Naglik");
+            employee1.AddGrade("a");
+            employee1.AddGrade('A');
+
+            //act
+            var statistics = employee1.GetStatistics();
+
+
+            // assert
+            Assert.AreEqual(100, statistics.Average);
+        }
+
+        [Test]
+        public void GradeInNumerReturnsLetter()
+        {
+            // arrange
+            var employee1 = new Employee("Paweł", "Naglik");
+            employee1.AddGrade("100");
+            employee1.AddGrade(50);
+
+            //act
+            var statistics = employee1.GetStatistics();
+
+
+            // assert
+            Assert.AreEqual('B', statistics.AverageLetter);
+        }
+
     }
 }
 
