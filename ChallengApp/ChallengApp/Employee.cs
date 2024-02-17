@@ -2,18 +2,16 @@
 
 namespace ChallengApp
 {
-    public class Employee
+    public class Employee : Person
     {
 
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, char gender)
+            : base(name, surname, gender)
         {
-            this.Name = name;
-            this.Surname = surname;
+
         }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
 
         public void AddGrade(float grade)
         {
@@ -51,7 +49,7 @@ namespace ChallengApp
                     this.AddGrade(20);
                     break;
                 default:
-                throw new Exception("Wrong Letter");
+                    throw new Exception("Wrong Letter");
             }
         }
         public void AddGrade(string grade)
@@ -62,7 +60,7 @@ namespace ChallengApp
             }
 
             else if (char.TryParse(grade, out char resultChar))
-                {
+            {
                 this.AddGrade(resultChar);
             }
             else
