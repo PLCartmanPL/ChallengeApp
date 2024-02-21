@@ -6,13 +6,19 @@
         public EmployeeInMemory(string name, string surname, char gender)
             : base(name, surname, gender)
         {
-
         }
+        public override event GradeAddedDelegate GradeAdded;
+        
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
+
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {

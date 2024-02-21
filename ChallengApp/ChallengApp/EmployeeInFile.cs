@@ -9,6 +9,7 @@
             : base(name, surname, gender)
         {
         }
+        public override event GradeAddedDelegate GradeAdded;
         public override void AddGrade(float grade)
         {
             using (var writer = File.AppendText(FileName))
@@ -16,6 +17,10 @@
                 if (grade >= 0 && grade <= 100)
                 {
                     writer.WriteLine(grade);
+                    if (GradeAdded != null)
+                    {
+                        GradeAdded(this, new EventArgs());
+                    }
                 }
                 else
                 {

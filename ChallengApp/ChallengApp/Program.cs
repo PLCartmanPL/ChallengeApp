@@ -3,7 +3,14 @@ Console.WriteLine("Witamy w programie do oceny pracownika");
 Console.WriteLine("======================================");
 Console.WriteLine();
 
-var employee = new EmployeeInFile("Adam", "Naglik", 'M');
+var employee = new EmployeeInMemory("Adam", "Naglik", 'M');
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano Nową ocene");
+}
+
 
 while (true)
 {
@@ -22,7 +29,6 @@ while (true)
         Console.WriteLine($"Exception catch: {e.Message}");
     }
 }
-
 var statsitic = employee.GetStatistics();
 
 Console.WriteLine($"Wartość Średnia: {statsitic.Average:N2}");
@@ -31,3 +37,4 @@ Console.WriteLine($"Wartość Maksymalna: {statsitic.Max}");
 Console.WriteLine($"Liczba ocen: {statsitic.NumberOfGrades}");
 Console.WriteLine($"Wartość średnia literą: {statsitic.AverageLetter}");
 Console.WriteLine();
+
