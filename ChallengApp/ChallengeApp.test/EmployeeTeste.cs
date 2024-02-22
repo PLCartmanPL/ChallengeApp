@@ -11,7 +11,7 @@ namespace ChallengeApp.test
         public void GetStatisticsReturnsValueMax()
         {
             // arrange
-            var employee1 = new Employee("Paweł", "Naglik");
+            var employee1 = new EmployeeInMemory("Paweł", "Naglik", 'M');
             employee1.AddGrade(12);
             employee1.AddGrade(10);
             employee1.AddGrade(22);
@@ -27,7 +27,7 @@ namespace ChallengeApp.test
         public void GetStatisticsReturnsValueMin()
         {
             // arrange
-            var employee1 = new Employee("Paweł", "Naglik");
+            var employee1 = new EmployeeInFile("Paweł", "Naglik", 'M');
             employee1.AddGrade(12);
             employee1.AddGrade(10);
             employee1.AddGrade(22);
@@ -43,7 +43,7 @@ namespace ChallengeApp.test
         public void GetStatisticsReturnsValueAverage()
         {
             // arrange
-            var employee1 = new Employee("Paweł", "Naglik");
+            var employee1 = new EmployeeInMemory("Paweł", "Naglik", 'M');
             employee1.AddGrade(2);
             employee1.AddGrade(2);
             employee1.AddGrade(6);
@@ -59,7 +59,7 @@ namespace ChallengeApp.test
         public void GradeInLetterReturnsNumber()
         {
             // arrange
-            var employee1 = new Employee("Paweł", "Naglik");
+            var employee1 = new EmployeeInMemory("Paweł", "Naglik", 'M');
             employee1.AddGrade("a");
             employee1.AddGrade('A');
 
@@ -74,8 +74,15 @@ namespace ChallengeApp.test
         [Test]
         public void GradeInNumerReturnsLetter()
         {
-            // arrange
-            var employee1 = new Employee("Paweł", "Naglik");
+            string filePath = "grades.txt";
+
+                using (var fileStream = new FileStream(filePath, FileMode.OpenOrCreate))
+                {
+                    fileStream.SetLength(0);
+                }
+            
+    // arrange
+    var employee1 = new EmployeeInFile("Paweł", "Naglik", 'M');
             employee1.AddGrade("100");
             employee1.AddGrade(50);
 

@@ -1,4 +1,6 @@
-﻿namespace ChallengApp
+﻿using System.Globalization;
+
+namespace ChallengApp
 {
     public abstract class EmployeeBase : IEmployee
     {
@@ -54,10 +56,13 @@
             {
                 this.AddGrade(result);
             }
-
             else if (char.TryParse(grade, out char resultChar))
             {
                 this.AddGrade(resultChar);
+            }
+            else if (double.TryParse(grade, NumberStyles.Float, CultureInfo.InvariantCulture, out double resultDouble))
+            {
+                this.AddGrade(resultDouble);
             }
             else
             {
